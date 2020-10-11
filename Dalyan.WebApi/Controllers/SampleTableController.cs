@@ -41,28 +41,28 @@ namespace Dalyan.WebApi.Controllers
     		return service.Add(obj);
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpPut]
     	public ServiceResult<SampleTable> Edit(SampleTable obj)
     	{
     		SampleTableService service = new SampleTableService(_container);
     		return service.Edit(obj);
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpGet]
     	public ServiceResult<SampleTable> Retrieve(int Id)
     	{
     		SampleTableService service = new SampleTableService(_container);
     		return service.Retrieve(Id);
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpGet]
     	public ServiceResult<IList<SampleTable>> GetAll()
     	{
     		SampleTableService service = new SampleTableService(_container);
     		return service.GetAll();
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpDelete]
     	public ServiceResult<string> Delete(int Id)
     	{
     		SampleTableService service = new SampleTableService(_container);

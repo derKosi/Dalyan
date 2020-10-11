@@ -41,20 +41,20 @@ namespace Dalyan.WebApi.Controllers
     		return service.Add(obj);
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpPut]
     	public ServiceResult<Product> Edit(Product obj)
     	{
     		ProductService service = new ProductService(_container);
     		return service.Edit(obj);
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpGet]
     	public ServiceResult<Product> Retrieve(int Id)
     	{
     		ProductService service = new ProductService(_container);
     		return service.Retrieve(Id);
     	}
-    	//[UserAuthorize]
+    	[UserAuthorize]
     	[HttpGet]
     	public ServiceResult<IList<Product>> GetAll()
     	{
@@ -62,7 +62,7 @@ namespace Dalyan.WebApi.Controllers
     		return service.GetAll();
     	}
     	[UserAuthorize]
-    	[HttpPost]
+    	[HttpDelete]
     	public ServiceResult<string> Delete(int Id)
     	{
     		ProductService service = new ProductService(_container);
