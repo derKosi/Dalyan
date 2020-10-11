@@ -124,7 +124,7 @@ public class CodeStringGenerator
     {
         List<string> result = new List<string>(); 
         XmlDocument doc = new XmlDocument();
-		string absolutePath = Path.GetFullPath(Path.GetDirectoryName("..//..//Dalyan.Entities//Definition//Tables.xml"));  				            
+		string absolutePath = Path.GetFullPath(@"C:\Dev\derKosi\Dalyan\Dalyan.Entities\Definition\Tables.xml");  				            
         doc.Load(absolutePath);
         foreach (XmlNode node in doc.SelectNodes("/Tables/Table"))
         {
@@ -136,7 +136,7 @@ public class CodeStringGenerator
 	public bool ControlTable(string tableName)
     {
 		XmlDocument doc = new XmlDocument();
-		string absolutePath = Path.GetFullPath(Path.GetDirectoryName("..//..//Dalyan.Entities//Definition//Tables.xml"));            
+		string absolutePath = Path.GetFullPath(@"C:\Dev\derKosi\Dalyan\Dalyan.Entities\Definition\Tables.xml");            
         doc.Load(absolutePath);
 		XmlNodeList xnList = doc.SelectNodes("/Tables/Table[@Name='" + tableName +"']");
 		foreach (XmlNode xn in xnList)
