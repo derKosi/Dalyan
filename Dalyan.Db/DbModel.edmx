@@ -46,6 +46,23 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="4000" />
           <Property Name="IsDeleted" Type="bit" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Price" Type="float" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedIpAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedUserId" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedIpAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedUserId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
         <EntityType Name="SampleTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -110,6 +127,18 @@
             </Principal>
             <Dependent Role="LogLogin">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CompanyId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -178,6 +207,7 @@
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LogDatabase" EntityType="Self.LogDatabase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LogLogin" EntityType="Self.LogLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SampleTable" EntityType="Self.SampleTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_LogDatabase_User" Association="Self.FK_LogDatabase_User">
@@ -187,6 +217,10 @@
           <AssociationSet Name="FK_LogLogin_User" Association="Self.FK_LogLogin_User">
             <End Role="User" EntitySet="User" />
             <End Role="LogLogin" EntitySet="LogLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Company" Association="Self.FK_Product_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_SampleTable_Company" Association="Self.FK_SampleTable_Company">
             <End Role="Company" EntitySet="Company" />
@@ -248,6 +282,11 @@
             <End Role="User" EntitySet="User" />
             <End Role="User1" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="Product" EntityType="DbModel.Product" />
+          <AssociationSet Name="FK_Product_Company" Association="DbModel.FK_Product_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -258,6 +297,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="SampleTable" Relationship="DbModel.FK_SampleTable_Company" FromRole="Company" ToRole="SampleTable" />
           <NavigationProperty Name="User" Relationship="DbModel.FK_User_Company" FromRole="Company" ToRole="User" />
+          <NavigationProperty Name="Product" Relationship="DbModel.FK_Product_Company" FromRole="Company" ToRole="Product" />
         </EntityType>
         <EntityType Name="CommonUserType">
           <Key>
@@ -431,6 +471,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedUserId" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedUserId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Company" Relationship="DbModel.FK_Product_Company" FromRole="Product" ToRole="Company" />
+        </EntityType>
+        <Association Name="FK_Product_Company">
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="DbModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -521,6 +591,24 @@
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DbModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedUserId" ColumnName="UpdatedUserId" />
+                <ScalarProperty Name="UpdatedIpAddress" ColumnName="UpdatedIpAddress" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+                <ScalarProperty Name="CreatedIpAddress" ColumnName="CreatedIpAddress" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

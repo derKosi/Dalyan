@@ -82,6 +82,9 @@
     <Compile Include="LogLogin.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleTable.cs">
       <DependentUpon>DbModel.tt</DependentUpon>

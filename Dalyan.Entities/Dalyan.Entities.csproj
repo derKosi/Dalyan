@@ -59,14 +59,17 @@
     <Compile Include="Models\CommonModel\Company.cs" />
     <Compile Include="Models\CommonModel\LogDatabase.cs" />
     <Compile Include="Models\CommonModel\LogLogin.cs" />
+    <Compile Include="Models\CommonModel\ExceptionLog.cs" />
+    <Compile Include="Models\CommonModel\CurrentUser.cs" />
+    <Compile Include="Models\CommonModel\User.cs" />
     <Compile Include="Models\DbModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CommonModel\ExceptionLog.cs" />
-    <Compile Include="Models\CommonModel\CurrentUser.cs" />
-    <Compile Include="Models\CommonModel\User.cs" />
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SampleTable.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Tables>
+  <Table Name="Product"></Table>
   <Table Name="SampleTable"></Table>
 </Tables>
 

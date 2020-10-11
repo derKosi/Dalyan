@@ -12,21 +12,21 @@ namespace Dalyan.Db
     using System;
     using System.Collections.Generic;
     
-    public partial class Company
+    public partial class Product
     {
-        public Company()
-        {
-            this.SampleTable = new HashSet<SampleTable>();
-            this.User = new HashSet<User>();
-            this.Product = new HashSet<Product>();
-        }
-    
         public int Id { get; set; }
+        public Nullable<int> CompanyId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public Nullable<double> Price { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CreatedIpAddress { get; set; }
+        public Nullable<int> CreatedUserId { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string UpdatedIpAddress { get; set; }
+        public Nullable<int> UpdatedUserId { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
-        public virtual ICollection<SampleTable> SampleTable { get; set; }
-        public virtual ICollection<User> User { get; set; }
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual Company Company { get; set; }
     }
 }

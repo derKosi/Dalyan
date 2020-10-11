@@ -31,5 +31,6 @@ namespace Dalyan.Db
         public virtual DbSet<LogLogin> LogLogin { get; set; }
         public virtual DbSet<SampleTable> SampleTable { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
     }
 }

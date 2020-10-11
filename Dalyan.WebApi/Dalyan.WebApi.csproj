@@ -171,6 +171,9 @@
     </Compile>
     <Compile Include="Controllers\LogDatabaseController.cs" />
     <Compile Include="Controllers\LogLoginController.cs" />
+    <Compile Include="Controllers\ProductController.cs">
+      <DependentUpon>ControllerService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\SampleTableController.cs">
       <DependentUpon>ControllerService.tt</DependentUpon>
     </Compile>

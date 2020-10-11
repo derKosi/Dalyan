@@ -130,6 +130,21 @@
     <Compile Include="Query\CommonQuery\CompanyRetrieveQuery.cs" />
     <Compile Include="Query\CommonQuery\UserRetrieveQuery.cs" />
     <Compile Include="Query\CommonQuery\UserDeleteQuery.cs" />
+    <Compile Include="Query\ProductAddQuery.cs">
+      <DependentUpon>ServiceQuery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ProductDeleteQuery.cs">
+      <DependentUpon>ServiceQuery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ProductEditQuery.cs">
+      <DependentUpon>ServiceQuery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ProductGetAllQuery.cs">
+      <DependentUpon>ServiceQuery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ProductRetrieveQuery.cs">
+      <DependentUpon>ServiceQuery.tt</DependentUpon>
+    </Compile>
     <Compile Include="Query\SampleTableAddQuery.cs">
       <DependentUpon>ServiceQuery.tt</DependentUpon>
     </Compile>

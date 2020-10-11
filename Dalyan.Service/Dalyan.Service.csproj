@@ -90,6 +90,9 @@
     <Compile Include="Services\CommonService\LogDatabaseService.cs" />
     <Compile Include="Services\CommonService\LoginLogService.cs" />
     <Compile Include="Services\CommonService\UserService.cs" />
+    <Compile Include="Services\ProductService.cs">
+      <DependentUpon>ServiceQueryHandler.tt</DependentUpon>
+    </Compile>
     <Compile Include="Services\SampleTableService.cs">
       <DependentUpon>ServiceQueryHandler.tt</DependentUpon>
     </Compile>
