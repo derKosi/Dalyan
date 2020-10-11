@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30524.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalyan.Db", "Dalyan.Db\Dalyan.Db.csproj", "{796CFAD1-28C3-40F3-9831-6766462D4FF3}"
 EndProject
@@ -24,6 +24,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Project", "Database Project", "{15002A90-3CF6-49BB-89D1-864B7C3D818D}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dalyan.Database", "Dalyan.Database\Dalyan.Database.sqlproj", "{BEBF116E-88CB-4A47-9CAF-A7BFBFAA02A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58482152-1068-4AFD-B333-46BA5218B24B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,5 +79,8 @@ Global
 		{D283A2C3-D3D4-4BFF-82C5-E4B3C319F11D} = {B6A9D89E-3EFA-4C56-AF1F-A78716E264E5}
 		{9AAF6CD5-BAA7-4A63-BBC6-5CD5E2E797C0} = {32CF29B4-C5FF-4652-80AF-24445F1E52BF}
 		{BEBF116E-88CB-4A47-9CAF-A7BFBFAA02A5} = {15002A90-3CF6-49BB-89D1-864B7C3D818D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0ACB1E8B-F3CD-4C05-8090-630AB5E78EE2}
 	EndGlobalSection
 EndGlobal
